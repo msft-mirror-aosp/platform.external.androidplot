@@ -24,6 +24,9 @@ LOCAL_SDK_VERSION := current
 
 LOCAL_SRC_FILES := $(call all-java-files-under, AndroidPlot-Core/src/main)
 
+# b/73499927
+LOCAL_ERROR_PRONE_FLAGS := -Xep:MissingOverride:OFF
+
 include ${BUILD_STATIC_JAVA_LIBRARY}
 
 ## Demo app
@@ -39,5 +42,8 @@ LOCAL_STATIC_JAVA_LIBRARIES := androidplot
 LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/Examples/DemoApp/res
 LOCAL_MANIFEST_FILE := Examples/DemoApp/AndroidManifest.xml
 LOCAL_SRC_FILES := $(call all-java-files-under, Examples/DemoApp/src)
+
+# b/73499927
+LOCAL_ERROR_PRONE_FLAGS := -Xep:MissingOverride:OFF
 
 include $(BUILD_PACKAGE)
